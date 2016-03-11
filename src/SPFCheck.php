@@ -33,6 +33,7 @@ class SPFCheck
     const MECHANISM_PTR = 'ptr';
     const MECHANISM_EXISTS = 'exists';
     const MECHANISM_INCLUDE = 'include';
+    const MODIFIER_REDIRECT = 'redirect';
 
     /** @var  DNSRecordGetterInterface */
     protected $DNSRecordGetter;
@@ -85,8 +86,8 @@ class SPFCheck
         }
 
         $operandOption = $operand = null;
-        if (false !== stripos($condition, ':')) {
-            list($mechanism, $operand) = explode(':', $condition, 2);
+        if (1 == preg_match('`:|=`', $condition)) {
+            list($mechanism, $operand) = preg_split('`:|=`', $condition, 2);
         } elseif (false !== stripos($condition, '/')) {
             list($mechanism, $operandOption) = explode('/', $condition, 2);
         } else {
@@ -208,8 +209,11 @@ class SPFCheck
                     return $includeResult;
                 }
                 break;
-
+            case self::MODIFIER_REDIRECT:
+                return $this->isIPAllowed($ipAddress, $operand);
+                break;
             default:
+
                 return self::RESULT_PERMERROR;
                 break;
         }
