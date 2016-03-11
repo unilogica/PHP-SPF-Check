@@ -3,6 +3,17 @@
 
 Simple library to check an IP address against a domain's [SPF](http://www.openspf.org/) record
 
+## Installation
+This library is available through Composer.
+Run `composer require mika56/spfcheck` or add this to your composer.json:
+```json
+{
+  "require": {
+    "mika56/spfcheck": "dev-master"
+  }
+}
+```
+
 ## Usage
 Create a new instance of SPLCheck. The constructor requires a DNSRecordGetterInterface to be passed. Currently, only DNSRecordGetter exists. which uses PHP's DNS functions to get data.
 ```php
