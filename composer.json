@@ -19,5 +19,6 @@
         "psr-4": {
             "Mika56\\SPFCheck\\": "src"
         }
-    }
+    },
+    "license": "MIT"
 }
