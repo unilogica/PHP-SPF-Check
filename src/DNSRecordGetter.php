@@ -22,7 +22,7 @@ class DNSRecordGetter implements DNSRecordGetterInterface
     public function getSPFRecordForDomain($domain)
     {
         $records = dns_get_record($domain, DNS_TXT | DNS_SOA);
-        if (false === $records || (is_array($records) && empty($records))) {
+        if (false === $records) {
             throw new DNSLookupException;
         }
 
@@ -41,7 +41,7 @@ class DNSRecordGetter implements DNSRecordGetterInterface
     public function resolveA($domain)
     {
         $records = dns_get_record($domain, DNS_A | DNS_AAAA);
-        if (false === $records || (is_array($records) && empty($records))) {
+        if (false === $records) {
             throw new DNSLookupException;
         }
 
@@ -61,7 +61,7 @@ class DNSRecordGetter implements DNSRecordGetterInterface
     public function resolveMx($domain)
     {
         $records = dns_get_record($domain, DNS_MX);
-        if (false === $records || (is_array($records) && empty($records))) {
+        if (false === $records) {
             throw new DNSLookupException;
         }
 

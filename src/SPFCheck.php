@@ -236,6 +236,9 @@ class SPFCheck
 
                 return $this->doCheck($ipAddress, $operand);
                 break;
+            case '':
+                // If a SPF record contains multiple spaces between parts, this should not be considered as an unknown mechanism
+                break;
             default:
                 return self::RESULT_PERMERROR;
                 break;
