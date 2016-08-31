@@ -1,5 +1,10 @@
 # PHP-SPF-Check
 [![Build Status](https://travis-ci.org/Mika56/PHP-SPF-Check.svg?branch=master)](https://travis-ci.org/Mika56/PHP-SPF-Check)
+[![HHVM](https://img.shields.io/hhvm/mika56/spfcheck.svg?maxAge=2592000)](http://hhvm.h4cc.de/package/mika56/spfcheck)
+[![Latest Stable Version](https://poser.pugx.org/mika56/spfcheck/v/stable)](https://packagist.org/packages/mika56/spfcheck)
+[![Total Downloads](https://poser.pugx.org/mika56/spfcheck/downloads)](https://packagist.org/packages/mika56/spfcheck)
+[![License](https://poser.pugx.org/mika56/spfcheck/license)](https://packagist.org/packages/mika56/spfcheck)
+[![Coverage Status](https://coveralls.io/repos/github/Mika56/PHP-SPF-Check/badge.svg)](https://coveralls.io/github/Mika56/PHP-SPF-Check)
 
 Simple library to check an IP address against a domain's [SPF](http://www.openspf.org/) record
 
@@ -21,6 +26,7 @@ Create a new instance of SPFCheck. The constructor requires a DNSRecordGetterInt
 use Mika56\SPFCheck\SPFCheck;
 use Mika56\SPFCheck\DNSRecordGetter;
 
+require('vendor/autoload.php');
 $checker = new SPFCheck(new DNSRecordGetter());
 var_dump($checker->isIPAllowed('127.0.0.1', 'test.com'));
 ```
