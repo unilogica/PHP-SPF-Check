@@ -50,10 +50,10 @@ class DNSRecordGetter implements DNSRecordGetterInterface
         $addresses = [];
 
         foreach ($records as $record) {
-            if (array_key_exists('a', $record)) {
-                $addresses[] = $record['a'];
-            } elseif (array_key_exists('aaaa', $record)) {
-                $addresses[] = $record['aaaa'];
+            if ($record['type'] === "A") {
+                $addresses[] = $record['ip'];
+            } elseif ($record['type'] === 'AAAA') {
+                $addresses[] = $record['ipv6'];
             }
         }
 
@@ -70,8 +70,8 @@ class DNSRecordGetter implements DNSRecordGetterInterface
         $addresses = [];
 
         foreach ($records as $record) {
-            if (array_key_exists('mx', $record)) {
-                $addresses[] = $record['mx'];
+            if ($record['type'] === "MX") {
+                $addresses[] = $record['target'];
             }
         }
 
