@@ -34,8 +34,7 @@ var_dump($checker->isIPAllowed('127.0.0.1', 'test.com'));
 Return value is one of `SPFCheck::RESULT_PASS`, `SPFCheck::RESULT_FAIL`, `SPFCheck::RESULT_SOFTFAIL`, `SPFCheck::RESULT_NEUTRAL`, `SPFCheck::RESULT_NONE`, `SPFCheck::RESULT_PERMERROR`, `SPFCheck::RESULT_TEMPERROR`
 
 ## Missing features
-A few features are missing from this library at the moment. Here's a partial list of those features:
-* [Section 3.2 of RFC7208](https://tools.ietf.org/html/rfc7208#section-3.2) on having multiple SPF records on a domain
-* [Section 3.3 of RFC7208](https://tools.ietf.org/html/rfc7208#section-3.2) on having multiple strings in a single SPF record
-* [Section 6.2 of RFC7208](https://tools.ietf.org/html/rfc7208#section-6.2) on the `exp` modifier
+A few features are still missing from this library at the moment. Here's a partial list of those features:
 * [Section 7 of RFC7208](https://tools.ietf.org/html/rfc7208#section-7) on macros
+
+You are very welcome to submit a pull request adding even part of those features.
