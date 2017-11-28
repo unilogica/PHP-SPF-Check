@@ -361,21 +361,9 @@ class SPFCheck
                             if (preg_match('/^[+-?~](all|a|mx|ptr|ip4|ip6|exists):?.*$/', $domain)) {
                                 return false;
                             }
-                            // @codeCoverageIgnoreStart
-                            if (version_compare(PHP_VERSION, '7', '>=')) {
-                                if (!filter_var($domain, FILTER_VALIDATE_DOMAIN)) {
-                                    return false;
-                                }
-                            } else {
-                                /** @link http://stackoverflow.com/a/4694816/2898156 */
-                                if (!(preg_match('/^([_a-z\d](-*[a-z\d])*)(\.([a-z\d](-*[a-z\d])*))*$/i', $domain)
-                                    && preg_match('/^.{1,253}$/', $domain)
-                                    && preg_match('/^[^\.]{1,63}(\.[^\.]{1,63})*$/', $domain))
-                                ) {
-                                    return false;
-                                }
+                            if (!preg_match('/^(((?!-))(xn--)?[a-z0-9-_]{0,61}[a-z0-9]{1,1}\.)*(xn--)?([a-z0-9\-]{1,61}|[a-z0-9-]{1,30}\.[a-z]{2,})$/i', $domain)) {
+                                return false;
                             }
-                            // @codeCoverageIgnoreEnd
                         }
                     }
                 }
