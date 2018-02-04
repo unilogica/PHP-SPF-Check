@@ -3,7 +3,7 @@
     "description": "Checks an IP address against a domain's SPF record",
     "type": "library",
     "require-dev": {
-        "phpunit/phpunit": "4.8.*",
+        "phpunit/phpunit": "4.8.* || 7.*",
         "symfony/yaml": "~2.1",
         "satooshi/php-coveralls": "~1.0",
         "symfony/phpunit-bridge": "^3.1"
