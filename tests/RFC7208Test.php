@@ -3,6 +3,7 @@
  *
  * @author Mikael Peigney
  */
+
 namespace Mika56\SPFCheck;
 
 class RFC7208Test extends OpenSPFTest
@@ -26,7 +27,7 @@ class RFC7208Test extends OpenSPFTest
 
     public function RFC7208DataProvider()
     {
-        $scenarios = file_get_contents('http://www.openspf.org/svn/project/test-suite/rfc7208-tests.yml');
+        $scenarios = file_get_contents(__DIR__.DIRECTORY_SEPARATOR.'rfc7208-tests.yml');
         // Apparently there is a YML error in that file
         $scenarios = str_replace('Result is none if checking SPF records only', '>-'."\n".'      Result is none if checking SPF records only', $scenarios);
 

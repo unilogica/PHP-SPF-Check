@@ -3,6 +3,7 @@
  *
  * @author Mikael Peigney
  */
+
 namespace Mika56\SPFCheck;
 
 class RFC4408Test extends OpenSPFTest
@@ -26,7 +27,7 @@ class RFC4408Test extends OpenSPFTest
 
     public function RFC4408DataProvider()
     {
-        $scenarios = file_get_contents('http://www.openspf.org/svn/project/test-suite/rfc4408-tests.yml');
+        $scenarios = file_get_contents(__DIR__.DIRECTORY_SEPARATOR.'rfc4408-tests.yml');
 
         return $this->loadTestCases($scenarios);
     }
