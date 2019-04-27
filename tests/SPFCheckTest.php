@@ -19,7 +19,7 @@ class SPFCheckTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider testProvider
+     * @dataProvider dataProvider
      * @param $expectedResult
      * @param $domain
      * @param $ipAddress
@@ -29,7 +29,7 @@ class SPFCheckTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expectedResult, $this->SPFCheck->isIPAllowed($ipAddress, $domain));
     }
 
-    public function testProvider()
+    public function dataProvider()
     {
         return [
             /* IP */
