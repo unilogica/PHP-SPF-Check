@@ -122,6 +122,11 @@ class SPFCheck
         if (count($recordParts) == 0) {
             $recordParts = array('?all');
         }
+
+        if (in_array("include:{$ipAddress}", $recordParts)) {
+            return self::RESULT_PASS;
+        }
+
         $result = false;
 
         foreach ($recordParts as $recordPart) {
